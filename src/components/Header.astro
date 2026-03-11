@@ -4,22 +4,25 @@ import HeaderLink from "./HeaderLink.astro";
 import { Icon } from "astro-icon/components";
 ---
 
-<header>
-  <nav>
-    <h2><a href="/">{SITE_TITLE}</a></h2>
-    <div class="internal-links">
+<header class="m-0 py-0 px-4 bg-white shadow-xs">
+  <nav class="flex items-center justify-between py-4">
+    <h2 class="flex items-stretch justify-center gap-3 m-0 text-neutral-600">
+      <Icon name="bash" width={28} height={28} class="m-0 p-0" />
+      <a
+        href="/"
+        class="font-bold text-lg m-0 p-0 border-b border-b-transparent text-neutral-600 no-underline"
+        >{SITE_TITLE}</a
+      >
+    </h2>
+
+    <div class="internal-links flex space-x-4">
       <HeaderLink href="/">Home</HeaderLink>
       <HeaderLink href="/blog">Blog</HeaderLink>
       <HeaderLink href="/about">Sobre mim</HeaderLink>
     </div>
-    <div class="social-links">
-      <a href="https://twitter.com/astrodotbuild" target="_blank">
-        <span class="sr-only">Se conecte comigo no linkedin</span>
 
-        <Icon name="linkedin" width={28} height={28} />
-      </a>
-
-      <a href="https://github.com/HermandoThiago" target="_blank">
+    <div class="social-links flex">
+      <a href="https://github.com/HermandoThiago" target="_blank" class="flex">
         <span class="sr-only">Conheça meus repositórios do github</span>
 
         <Icon name="github" width={28} height={28} color={"black"} />
@@ -28,40 +31,11 @@ import { Icon } from "astro-icon/components";
   </nav>
 </header>
 <style>
-  header {
-    margin: 0;
-    padding: 0 1em;
-    background: white;
-    box-shadow: 0 2px 8px rgba(var(--black), 5%);
-  }
-  h2 {
-    margin: 0;
-    font-size: 1em;
-  }
-
-  h2 a,
-  h2 a.active {
-    text-decoration: none;
-  }
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  nav a {
-    padding: 1em 0.5em;
-    color: var(--black);
-    border-bottom: 4px solid transparent;
-    text-decoration: none;
-  }
   nav a.active {
     text-decoration: none;
     border-bottom-color: var(--accent);
   }
-  .social-links,
-  .social-links a {
-    display: flex;
-  }
+
   @media (max-width: 720px) {
     .social-links {
       display: none;
