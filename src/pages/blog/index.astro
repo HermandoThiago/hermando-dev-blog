@@ -18,7 +18,9 @@ const posts = (await getCollection("blog"))
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <style>
       main {
-        width: 960px;
+        max-width: 960px;
+        width: calc(100% - 2em);
+        margin: auto;
       }
       ul {
         display: flex;
@@ -69,6 +71,11 @@ const posts = (await getCollection("blog"))
       ul a:hover img {
         box-shadow: var(--box-shadow);
       }
+      @media (max-width: 960px) {
+        main {
+          padding: 2em 1em;
+        }
+      }
       @media (max-width: 720px) {
         ul {
           gap: 0.5em;
@@ -84,11 +91,19 @@ const posts = (await getCollection("blog"))
           font-size: 1.563em;
         }
       }
+      @media (max-width: 480px) {
+        ul li img {
+          border-radius: 8px;
+        }
+        ul li:first-child .title {
+          font-size: 1.3em;
+        }
+      }
     </style>
   </head>
   <body>
     <Header />
-    <main class="w-240">
+    <main>
       <section>
         <ul>
           {
