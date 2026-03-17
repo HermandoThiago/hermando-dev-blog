@@ -1,62 +1,109 @@
-# Astro Starter Kit: Blog
+# hermando.dev — Blog Pessoal
 
-```sh
-pnpm create astro@latest -- --template blog
-```
+Blog pessoal de Hermando Thiago sobre programação, análise de dados e tecnologia.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Sobre
 
-Features:
+Site estático construído com **Astro**, focado em conteúdo técnico nas áreas de:
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+- Desenvolvimento backend (TypeScript, Node.js, NestJS, Python)
+- Análise de dados e automação
+- Arquitetura de software
+- Tecnologia em geral
 
-## 🚀 Project Structure
+## Stack
 
-Inside of your Astro project, you'll see the following folders and files:
+| Tecnologia | Versão | Uso |
+| :--------- | :----- | :-- |
+| Astro | 5.17.1 | Framework principal |
+| TypeScript | 5.9.3 | Linguagem |
+| Tailwind CSS | 4.2.1 | Estilização |
+| MDX | 4.3.13 | Suporte a componentes em posts |
+
+**Outras integrações:** `@astrojs/sitemap`, `@astrojs/rss`, `astro-icon`, `sharp`
+
+## Estrutura do Projeto
 
 ```text
+hermando-dev-blog/
 ├── public/
+│   └── fonts/              # Fontes (Atkinson Regular/Bold)
 ├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
+│   ├── assets/             # Imagens dos posts
+│   ├── components/         # Componentes reutilizáveis
+│   │   ├── BaseHead.astro  # Meta tags e SEO
+│   │   ├── Header.astro
+│   │   ├── Footer.astro
+│   │   └── FormattedDate.astro
+│   ├── content/
+│   │   └── blog/           # Posts em Markdown/MDX
+│   ├── icons/              # Ícones SVG (GitHub, LinkedIn, Bash)
+│   ├── layouts/
+│   │   └── BlogPost.astro  # Layout dos posts
+│   ├── pages/
+│   │   ├── index.astro
+│   │   ├── about.astro
+│   │   ├── blog/
+│   │   └── rss.xml.js
+│   ├── styles/
+│   │   └── global.css
+│   ├── content.config.ts   # Schema das coleções
+│   └── consts.ts           # Constantes globais
 ├── astro.config.mjs
-├── README.md
 ├── package.json
 └── tsconfig.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Comandos
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Todos os comandos devem ser executados na raiz do projeto:
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+| Comando | Ação |
+| :------ | :--- |
+| `pnpm install` | Instala as dependências |
+| `pnpm dev` | Inicia o servidor local em `localhost:4321` |
+| `pnpm build` | Gera o site de produção em `./dist/` |
+| `pnpm preview` | Pré-visualiza o build localmente |
+| `pnpm astro ...` | Executa comandos da CLI do Astro |
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Criando um novo post
 
-## 🧞 Commands
+Crie um arquivo `.md` ou `.mdx` em `src/content/blog/` com o seguinte frontmatter:
 
-All commands are run from the root of the project, from a terminal:
+```markdown
+---
+title: 'Título do Post'
+description: 'Breve descrição do conteúdo'
+pubDate: 'Mar 17 2026'
+heroImage: '../assets/nome-da-imagem.png'
+draft: false
+---
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+Conteúdo do post aqui...
+```
 
-## 👀 Want to learn more?
+**Campos disponíveis:**
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+| Campo | Tipo | Obrigatório | Descrição |
+| :---- | :--- | :---------- | :-------- |
+| `title` | string | sim | Título do post |
+| `description` | string | sim | Descrição curta (usada no SEO e listagem) |
+| `pubDate` | date | sim | Data de publicação |
+| `updatedDate` | date | não | Data da última atualização |
+| `heroImage` | image | não | Imagem de capa |
+| `draft` | boolean | não | `true` oculta o post da listagem |
 
-## Credit
+## Artigos Publicados
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+| Data | Título | Arquivo |
+| :--- | :----- | :------ |
+| 16/03/2026 | [Por que o Astro deveria ser seu próximo framework frontend (mas não o primeiro)](src/content/blog/por-que-o-astro-deveria-ser-seu-proximo-framework.md) | `por-que-o-astro-deveria-ser-seu-proximo-framework.md` |
+
+## Funcionalidades
+
+- SEO otimizado com canonical URLs, OpenGraph e Twitter Cards
+- Feed RSS em `/rss.xml`
+- Sitemap automático
+- Design responsivo (mobile-first)
+- Suporte a português brasileiro (`lang="pt-br"`)
+- Otimização de imagens com Sharp
