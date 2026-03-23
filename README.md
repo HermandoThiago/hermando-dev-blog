@@ -98,6 +98,7 @@ Conteúdo do post aqui...
 | Data | Título | Arquivo |
 | :--- | :----- | :------ |
 | 16/03/2026 | [Por que o Astro deveria ser seu próximo framework frontend (mas não o primeiro)](src/content/blog/por-que-o-astro-deveria-ser-seu-proximo-framework.md) | `por-que-o-astro-deveria-ser-seu-proximo-framework.md` |
+| 22/03/2026 | [O mínimo de comandos linux para todo profissional de tecnologia](src/content/blog/comandos-linux-essenciais-para-devs.md) | `comandos-linux-essenciais-para-devs.md |
 
 ## Funcionalidades
 
