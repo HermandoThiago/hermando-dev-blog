@@ -80,6 +80,11 @@ b {
   font-weight: 700;
 }
 
+pre,
+table {
+  margin-bottom: 1.5rem;
+}
+
 p {
   margin-bottom: 1em;
   text-align: justify;
